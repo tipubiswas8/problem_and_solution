@@ -55,29 +55,30 @@ $array2 = [
         'phone' => 001
     ],
     [
-        'sl' => 3,
+        'sl' => 2,
         'address' => 'barisal',
-        'phone' => 003
+        'phone' => 002
     ],
     [
-        'sl' => 5,
+        'sl' => 3,
         'address' => 'khulna',
-        'phone' => 005
+        'phone' => 003
     ]
 ];
 
 
-$i = 0;
-foreach ($array1 as $key => $a1) {
-    $val = '';
-    $x = $array1[$key]['roll'];
-    if ($x == '1111') {
-        foreach ($array2 as $k2 => $a2) {
-            $val = $array2[$i]['address'] ?? [];
+$key2 = 0;
+foreach ($array1 as $key1 => $value1) {
+    $addressOfArray1 = '';
+    $rollOfArray1 = $array1[$key1]['roll'];
+    if ($rollOfArray1 == '1111') {
+        foreach ($array2 as $value2) {
+            // if undefined array key of array2, index will be empty array
+            $addressOfArray1 = $array2[$key2]['address'] ?? [];
         }
-        $i++;
+        $key2++;
     }
-    $array1[$key]['address'] = $val;
+    $array1[$key1]['address'] = $addressOfArray1;
 }
 
 var_dump($array1);
